@@ -1,25 +1,24 @@
-var WeatherAdmin = require("./WeatherAdmin");
+var inquirer = require('inquirer');
 
-// Hold the value whether someone is an "admin" or "user"
-var loginType = process.argv[2];
 
-// If they are a user... they will also need to provide a "name"
-var userName = process.argv[3];
+inquirer.prompt([
 
-// And they will need to provide a "location"
-var userLocation = process.argv[4];
-
-// Create an instance of the WeatherAdmin. Remember WeatherAdmin is a constructor! Not an object.
-var MyAdmin = new WeatherAdmin();
-
-if (loginType === "admin") {
-
-  MyAdmin.getData();
-
+{
+	type: "list",
+	name: "choice",
+	message: "Are you a user or an admin?",
+	choices: ["User", "Admin"]
 }
 
-else {
+	]).then(function (user) {
 
-  MyAdmin.newUserSearch(userName, userLocation);
+		if(user.choice == "User"){
+			console.log("User Selected");
+		}
 
-}
+		else if(user.choice == "Admin"){
+			console.log("Admin Selected");
+		}
+
+    // Use user feedback for... whatever!! 
+});
