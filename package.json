@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/azimmomin123/WeatherAdmin/issues"
   },
-  "homepage": "https://github.com/azimmomin123/WeatherAdmin#readme"
+  "homepage": "https://github.com/azimmomin123/WeatherAdmin#readme",
+  "dependencies": {
+    "weather-js": "^1.0.2"
+  }
 }

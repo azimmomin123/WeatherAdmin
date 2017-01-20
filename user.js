@@ -4,13 +4,20 @@ var weather = require("weather-js");
 var UserSearch = function(name, place) {
 	this.name = name;
 	this.place = place;
+	this.date = Date.now();
 
-	weather.find({search: this.place, degreeType: 'F'}, function(err, result) {
+	this.getWeather = function(){
+
+		weather.find({search: this.place, degreeType: 'F'}, function(err, result) {
 	  	if(err){
 			console.log(err);
 	 	} 
 		console.log(JSON.stringify(result, null, 2));
 	});
+
+	}
+
+
 }
 
-export.userResults = UserSearch;
+module.exports = UserSearch;
